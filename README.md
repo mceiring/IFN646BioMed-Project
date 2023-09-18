@@ -8,8 +8,6 @@ We recommend using the fruit fly (Drosophila melanogaster), as it is widely used
 
 If you want to test larger genomes, you could use the mouse (mus musculus) genome. The latest version is GRCm39, which you can access here: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001635.27/Links to an external site.. You can follow the same step as above, and get a zip file just over 975MB.
 
- 
-
 Tasks
 The overall objective of this project is to understand how robust and how reproducible genomic analyses are. You will consider the whole pipeline, starting from a set of reads and ending with a list of differentially expressed genes.
 

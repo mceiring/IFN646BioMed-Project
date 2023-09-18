@@ -6,7 +6,13 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"tamasfe.even-better-toml"
+				"tamasfe.even-better-toml",
+				"ms-azuretools.vscode-docker",
+				"reditorsupport.r",
+				"vscode-icons-team.vscode-icons",
+				"ms-vscode-remote.remote-wsl",
+				"ms-python.python",
+				"ms-python.vscode-pylance"
 			]
 		}
 	}
