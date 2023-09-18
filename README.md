@@ -1,6 +1,7 @@
 # IFN646BioMed-Project
 Project 3 - Reproducibility and robustness of genomics results
 [[ https://canvas.qut.edu.au/courses/14810/pages/project-3-reproducibility-and-robustness-of-genomics-results?module_item_id=1451521]]
+
 Data
 For this project, you are in charge of generating the data, so the only thing we are setting is the context, in the sense of which genome to work with.
 
