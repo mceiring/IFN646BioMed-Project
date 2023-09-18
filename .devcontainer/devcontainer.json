@@ -1,0 +1,13 @@
+{
+    "name": "python",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "python",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"tamasfe.even-better-toml"
+			]
+		}
+	}
+  }
