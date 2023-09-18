@@ -1,6 +1,6 @@
 # IFN646BioMed-Project
 Project 3 - Reproducibility and robustness of genomics results
-Project 3 - Reproducibility and robustness of genomics results
+
 Data
 For this project, you are in charge of generating the data, so the only thing we are setting is the context, in the sense of which genome to work with.
 
