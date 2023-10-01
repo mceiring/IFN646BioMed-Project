@@ -1,1 +1,4 @@
-data
+data/annotated genome.gtf
+data/nucleotide sequences.fna
+data/rna.fna
+data_summary.tsv
