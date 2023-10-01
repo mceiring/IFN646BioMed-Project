@@ -1,3 +1,3 @@
 FROM nanozoo/bowtie2
 FROM r-base
-#RUN apt update -y
+#RUN conda create -n r_env r-essentials r-base

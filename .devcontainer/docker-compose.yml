@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  python:
+  biomed:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
