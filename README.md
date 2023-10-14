@@ -19,7 +19,7 @@ For this project, the data generation is under your purview. We've set the conte
 
 ## Project Tasks
 
-1. **Data Generation**: Use tools like [polyester](URL_TO_POLYESTER) to generate sets of reads for your chosen genome. Simulate multiple experiments for identical conditions.
+1. **Data Generation**: Use tools like [polyester](https://bioconductor.org/packages/release/bioc/html/polyester.html) to generate sets of reads for your chosen genome. Simulate multiple experiments for identical conditions.
 
 2. **Introducing Noise**: Examine the impact of shuffling reads. For example, compare results from sequences A-B-C-D vs. D-B-A-C. Consider introducing sequencing errors in some reads.
 
@@ -29,7 +29,7 @@ For this project, the data generation is under your purview. We've set the conte
      - Quantify at the gene level with featureCounts.
      - Conduct differential expression analysis with DESeq2.
    - **Method 2**: 
-     - Perform quantification using pseudoalignment (choose between [Kallisto](URL_TO_KALLISTO) or [Salmon](URL_TO_SALMON)).
+     - Perform quantification using pseudoalignment with [Salmon](https://combine-lab.github.io/salmon/).
      - Follow up with differential expression analysis using DESeq2.
 
 4. **Evaluation**: Assess the consistency in results.
