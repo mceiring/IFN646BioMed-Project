@@ -15,15 +15,24 @@ annotations <- read.table(path_annotations, comment.char="#", quote="",  # nolin
                          col.names=c("seqname", "source", "feature", "start", "end", "score", "strand", "frame", "attribute"), # nolint
                          fill = TRUE, sep="\t") # nolint
 
-exon_annotations <- annotations[annotations$feature == "exon", ]
-fold_changes_vector <- c(rep(1, 500), rep(2, 50))
+exon_annotations <- annotations[annotations$feature == "exon", ] # 35384
+fold_changes_vector <- c(rep(1, 1), rep(1, 1))
 
 # Synthetic read generation
 simulate_experiment(seqpath = genome_sequence,
-                    gtf = annotations,
-                    num_reps = 5, # Number of replicates
-                    readlen = 10, # Read length
-                    numreads = 50, # Number of reads
-                    outdir = "read_outputs/",
-                    strand_specific = FALSE,
-                    fold_changes = fold_changes_vector)
+                    gtf = exon_annotations,
+                    num_reps = 1, # sets of reads
+                    reads_per_transcript = 10, # reads per set
+                    readlen = 50, # chars per read
+                    fraglen = 100, # fragment length mean
+                    fragsd = 10, # fragment length st. dev.
+                    error_rate = 0.0, # % incorrect
+                    fold_changes = fold_changes_vector, # diff. exp. controller
+                    paired = TRUE, # both sides of helix
+                    size = NULL, # size of reads generated w/ -binomial dist.
+                    write_info = FALSE, # write diff. exp. transcripts
+                    transcriptid = NULL, # ids for transcripts
+                    seed = NULL, # rng seed
+                    outdir = "polyester_reads/")
+
+# seed arg helpful for consistency later

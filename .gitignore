@@ -1,5 +1,5 @@
-data/annotated_genome.gtf
-data/nucleotide_sequences.fna
-data/rna.fna
+data/annotation.gtf
+data/sequences.fna
+data/transcripts.fna
 data_summary.tsv
 read_outputs/*

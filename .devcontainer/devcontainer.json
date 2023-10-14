@@ -10,9 +10,9 @@
 				"ms-azuretools.vscode-docker",
 				"vscode-icons-team.vscode-icons",
 				"ms-vscode-remote.remote-wsl",
+				"reditorsupport.r",
 				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"reditorsupport.r"
+				"ms-python.vscode-pylance"
 			]
 		}
 	}
