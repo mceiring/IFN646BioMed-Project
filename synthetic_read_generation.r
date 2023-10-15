@@ -35,4 +35,25 @@ simulate_experiment(seqpath = genome_sequence,
                     seed = NULL, # rng seed
                     outdir = "polyester_reads/")
 
+
+# multiple experiment setup
+# read_lengths <- c(50, 75, 100)
+# error_rates <- c(0.0, 0.01, 0.02)
+# for (readlen in read_lengths) {
+#     for (error in error_rates) {
+#         simulate_experiment(seqpath = genome_sequence,
+#                             gtf = exon_annotations,
+#                             num_reps = 1,
+#                             reads_per_transcript = 10,
+#                             readlen = readlen,
+#                             fraglen = 100,
+#                             fragsd = 10,
+#                             error_rate = error,
+#                             fold_changes = fold_changes_vector,
+#                             paired = TRUE,
+#                             outdir = paste0("polyester_reads/readlen_", readlen, "_error_", error, "/"))
+#     }
+# }
+
+
 # seed arg helpful for consistency later
