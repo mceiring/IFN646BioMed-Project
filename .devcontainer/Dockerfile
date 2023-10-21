@@ -12,6 +12,7 @@ SHELL ["/bin/bash", "--login", "-c"]
 
 # Install required packages, including bowtie2 and other bioinformatics tools
 RUN conda install -c bioconda bowtie2
+RUN conda install -c bioconda subread
 RUN conda install -c bioconda kallisto
 
 # Configure CRAN mirror for R
@@ -22,6 +23,7 @@ RUN R -e "if (!requireNamespace('BiocManager', quietly=TRUE)) install.packages('
 BiocManager::install('polyester');\
 BiocManager::install('Biostrings');\
 BiocManager::install('rtracklayer');\
+BiocManager::install('ShortRead');\
 BiocManager::install('DESeq2');\
 install.packages('jsonlite');\
 install.packages('fs', version='1.5.0');\

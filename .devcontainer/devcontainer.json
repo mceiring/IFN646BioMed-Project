@@ -12,8 +12,12 @@
 				"ms-vscode-remote.remote-wsl",
 				"reditorsupport.r",
 				"ms-python.python",
-				"ms-python.vscode-pylance"
-			]
+				"ms-python.vscode-pylance",
+				"formulahendry.code-runner"
+			],
+			"settings": {
+				"python.pythonPath": "/opt/conda/env/biomed/bin/python"
+			}
 		}
 	}
   }
