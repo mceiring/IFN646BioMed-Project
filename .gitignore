@@ -1,5 +1,6 @@
 data/annotation.gtf
 data/sequences.fna
 data/transcripts.fna
-data_summary.tsv
-read_outputs/*
+polyester_reads/*
+alignment_based/*
+alignment_free/*
