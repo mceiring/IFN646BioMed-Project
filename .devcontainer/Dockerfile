@@ -30,4 +30,4 @@ install.packages('fs', version='1.5.0');\
 install.packages('pkgload', version='1.2.4');\
 install.packages('roxygen2', version='7.1.2');\
 install.packages('languageserver');"
-# still have languageserver error (skip for now)
+# still have languageserver error (ignore, only used for auto-complete)
