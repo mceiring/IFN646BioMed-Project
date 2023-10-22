@@ -4,6 +4,9 @@ FROM continuumio/miniconda3
 # Create a new Conda environment with Python 3.8 and R
 RUN conda create -n biomed python=3.8 r-base
 
+#RUN apt-get update &&\
+#    apt-get install -y build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev
+
 # Activate the new environment and set it as the default for the shell
 RUN echo "conda activate biomed" >> ~/.bashrc
 
@@ -29,5 +32,5 @@ install.packages('jsonlite');\
 install.packages('fs', version='1.5.0');\
 install.packages('pkgload', version='1.2.4');\
 install.packages('roxygen2', version='7.1.2');\
-install.packages('languageserver');"
-# still have languageserver error (ignore, only used for auto-complete)
+install.packages('ggplot2');\
+install.packages('VennDiagram');"

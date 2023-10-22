@@ -77,7 +77,7 @@ shuffle_reads_fasta <- function(file_path, shuffle_percentage) {
 }
 
 # Define shuffling levels and their respective percentages
-shuffle_levels <- list(low = 0.05, medium = 0.25, high = 0.5)
+shuffle_levels <- list(low = 0.005, medium = 0.01, high = 0.025)
 
 # Loop through conditions, error scenarios, and replicates
 for (condition in c("control", "treatment")) {
