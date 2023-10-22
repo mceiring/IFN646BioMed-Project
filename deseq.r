@@ -22,9 +22,9 @@ for(error in error_levels){
     for(cond in conditions){
       path = paste0("alignment_free/", cond, "_", error, "_", rep, "/abundance.tsv")
       data_alignment_free = read.table(path, header=TRUE, sep="\t")
-      
+
       if (is.null(target_ids_alignment_free)){
-        target_ids_alignment_free = data_alignment_free$"target_ids"
+        target_ids_alignment_free = data_alignment_free$"target_id"
       }
 
       count_list_alignment_free[[paste(cond, error, rep, sep="_")]] = data_alignment_free$est_counts
@@ -38,6 +38,7 @@ for(error in error_levels){
     for(cond in conditions){
       path = paste0("alignment_based/", cond, "_", error, "_", rep, "_counts.txt")
       data_alignment_based = read.table(path, header=TRUE, sep="\t", skip=1, check.names=FALSE)
+
       if (is.null(target_ids_alignment_based)){
         target_ids_alignment_based = data_alignment_based$"Chr"
       }
@@ -119,51 +120,7 @@ for(error in error_levels){
 
 # ~~~ Evaluation ~~~ #
 # 1. Reproducibility (CoV)
-cov_values <- apply(count_matrix_alignment_free, 1, function(row_values) {
-  sd(row_values) / mean(row_values)
-})
-
-# Visualization for CoV
-p_cov <- ggplot(data.frame(CoV = cov_values), aes(x = CoV)) +
-  geom_boxplot() +
-  geom_vline(aes(xintercept = median(CoV)), color = "red", linetype = "dashed") +
-  ggtitle("Coefficient of Variation across Replicates")
-print(p_cov)
 
 # 2. Robustness to Noise (Spearman)
-lfc_correlation_list <- list()
-for (error1 in error_levels) {
-  for (error2 in error_levels) {
-    if (error1 != error2) {
-      lfc1 <- results_alignment_free[[error1]]$log2FoldChange
-      lfc2 <- results_alignment_free[[error2]]$log2FoldChange
-      correlation <- cor(lfc1, lfc2, method = "spearman")
-      lfc_correlation_list[[paste(error1, "vs", error2)]] <- correlation
-      p_correlation <- ggplot(data.frame(LFC1 = lfc1, LFC2 = lfc2), aes(x = LFC1, y = LFC2)) +
-        geom_point(alpha = 0.5) +
-        geom_smooth(method = "loess") +
-        ggtitle(paste("LFC correlation between", error1, "and", error2, "- Spearman:", round(correlation, 2)))
-      print(p_correlation)
-    }
-  }
-}
 
 # 3. Alignment-Based vs Alignment-Free (Jaccard)
-jaccard_list <- list()
-for (error in error_levels) {
-  sig_genes_free <- rownames(sig_genes_alignment_free[[error]])
-  sig_genes_based <- rownames(sig_genes_alignment_based[[error]])
-  intersection <- length(intersect(sig_genes_free, sig_genes_based))
-  union_length <- length(union(sig_genes_free, sig_genes_based))
-  jaccard_index <- intersection / union_length
-  jaccard_list[[error]] <- jaccard_index
-  venn.plot <- venn.diagram(
-    list(Alignment_Free = sig_genes_free, Alignment_Based = sig_genes_based),
-    filename = "venn_diagram_output.png"
-    )
-  grid.draw(venn.plot)
-}
-
-# Results check
-print(lfc_correlation_list)
-print(jaccard_list)
