@@ -56,7 +56,7 @@ for (condition in c("control", "treatment")) {
 }
 
 # ~~~ Read Shuffle ~~~ #
-shuffle_reads_fasta <- function(file_path, shuffle_percentage) {
+shuffle_reads_fasta <- function(file_path, shuffle_percentage=1) {
   # Read the FASTA file
   reads <- readDNAStringSet(file_path)
   
@@ -76,9 +76,6 @@ shuffle_reads_fasta <- function(file_path, shuffle_percentage) {
   return(reads)
 }
 
-# Define shuffling levels and their respective percentages
-shuffle_levels <- list(low = 0.005, medium = 0.01, high = 0.025)
-
 # Loop through conditions, error scenarios, and replicates
 for (condition in c("control", "treatment")) {
   for (error_level in names(error_rates)) {
@@ -86,12 +83,9 @@ for (condition in c("control", "treatment")) {
       for (end_num in 1:2) { # Loop over the paired-end reads
         # Define input file path
         input_file <- sprintf("%s/%s_%s/sample_%02d_%d.fasta", output_dir, condition, error_level, rep, end_num)
-        
-        # Shuffle reads based on the shuffling level
-        shuffled_percentage <- shuffle_levels[[error_level]]
-        shuffled_reads <- shuffle_reads_fasta(input_file, shuffled_percentage)
-        
+                
         # Write shuffled reads back to FASTA
+        shuffled_reads <- shuffle_reads_fasta(input_file)  # assumes 100% shuffle rate
         output_file <- sprintf("%s/%s_%s/shuffled_sample_%02d_%d.fasta", output_dir, condition, error_level, rep, end_num)
         writeXStringSet(shuffled_reads, output_file)
       }
