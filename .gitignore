@@ -4,3 +4,4 @@ data/transcripts.fna
 polyester_reads/*
 alignment_based/*
 alignment_free/*
+results/*
