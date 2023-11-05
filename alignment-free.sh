@@ -29,4 +29,3 @@ for condition in "${conditions[@]}"; do
         done
     done
 done
-
